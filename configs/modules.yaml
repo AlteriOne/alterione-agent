@@ -1,0 +1,21 @@
+modules:
+  - id: memory-sqlite
+    command: ./modules/alterione-memory-sqlite
+    args: ["--db-path", "./data/memory.db"]
+    type: memory
+    autostart: true
+    restart_policy: always # always / on-failure / never
+    timeout_ms: 5000
+
+  - id: llm-ollama
+    command: ./modules/alterione-llm-ollama
+    args: ["--base-url", "http://localhost:11434"]
+    type: llm
+    autostart: true
+    restart_policy: on-failure
+
+  - id: skill-web-search
+    command: ./modules/alterione-skill-web
+    type: skill
+    autostart: false # загружается по требованию
+    restart_policy: never

@@ -1,0 +1,20 @@
+agent:
+  id: my-alterione
+  version: 0.1.0
+
+server:
+  host: 127.0.0.1
+  port: 8080
+  ws_port: 8081
+
+modules_config: ./modules.yaml
+personas_dir: ./personas/
+
+defaults:
+  persona: personal
+  llm_module: llm-ollama
+  memory_module: memory-sqlite
+
+watchdog:
+  heartbeat_interval_sec: 10
+  recovery_attempts: 3
